@@ -1,10 +1,17 @@
 
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
 const webpack = require('webpack');
 
+const isDev = process.env.NODE_ENV === 'development';
+
+console.log('isDev: ', isDev)
+
 module.exports = {
-	mode: 'development',
+	mode: isDev ? 'development' : 'production',
 	entry: {
 		main: './src/index.js',
 	},
@@ -35,6 +42,7 @@ module.exports = {
 				]
 			}, {
 				test: /\.css$/,
+				/*
 				use: [
 					{
 						loader: 'style-loader'
@@ -42,6 +50,11 @@ module.exports = {
 						loader: 'css-loader'
 					}
 				]
+				*/
+				use: [
+					isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+					"css-loader"
+				  ]
 			}, {
 				test: /\.vue$/,
 				use: [
@@ -64,7 +77,13 @@ module.exports = {
 		}),
 		new webpack.NamedModulesPlugin(),
 		new webpack.HotModuleReplacementPlugin(), 
-		new VueLoaderPlugin()
+		new VueLoaderPlugin(),
+		new MiniCssExtractPlugin({
+			// Options similar to the same options in webpackOptions.output
+			// both options are optional
+			filename: "[name].css",
+			chunkFilename: "[id].css"
+		})
 	],
 
 	optimization: {

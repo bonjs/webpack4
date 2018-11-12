@@ -15,5 +15,8 @@
 	}
 </script>
 <style scoped>
+	div {
+		color: rgb(21, 29, 31);
+	}
 </style>
 
