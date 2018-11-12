@@ -1,4 +1,6 @@
 
+require('./style.css')
+
 var str = 'this is index';
 
 var p = new Promise(function(resolve, reject) {

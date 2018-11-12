@@ -32,6 +32,15 @@ module.exports = {
 						options: { minimize: false }
 					}
 				]
+			}, {
+				test: /\.css$/,
+				use: [
+					{
+						loader: 'style-loader'
+					}, {
+						loader: 'css-loader'
+					}
+				]
 			}
 		]
 	},
