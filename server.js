@@ -6,6 +6,17 @@ const webpack = require('webpack');
 const express = require('express');
 const app = express();
 
+
+// 处理mode:'history'下的地址问题
+var history = require('connect-history-api-fallback');
+app.use(history({
+  index: '/',
+  verbose: true,
+}));
+
+
+
+
 var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpackHotMiddleware = require('webpack-hot-middleware');
 
@@ -25,8 +36,7 @@ var hotMiddleware = webpackHotMiddleware(compiler);
 app.use(devMiddleware);
 app.use(hotMiddleware);
 
-app.get('/', function() {
-  console.log('哈哈')
-})
+app.listen(3000, function(req, res) {
+  console.log('listening on port 3000!');
+});
 
-app.listen(3000, () => console.log('listening on port 3000!'))

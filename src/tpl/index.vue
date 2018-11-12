@@ -17,13 +17,15 @@
 	
 	import modeA from './modeA.vue';
 	import modeB from './modeB.vue';
+
 	
 	const routes = [
 		{ path: '/a', component: modeA },
 		{ path: '/b', component: modeB }
 	]
 	const router = new VueRouter({
-		routes
+		routes,
+		mode: 'history'
 	})
 	export default {
 		router,
