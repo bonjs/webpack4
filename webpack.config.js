@@ -1,6 +1,7 @@
 
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const uglify = require('uglifyjs-webpack-plugin');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
@@ -84,7 +85,17 @@ module.exports = {
 			filename: "[name].css",
 			chunkFilename: "[id].css"
 		})
-	],
+	].concat(isDev ? [] : new uglify({
+		extractComments: {
+			condition: true,
+			filename(file) {
+				return `${file}`;
+			},
+			banner(commentsFile) {
+				return `Copyright Alex All Rights Reserved`;
+			}
+		  }
+	})),
 
 	optimization: {
 		minimize: false, //是否进行代码压缩
