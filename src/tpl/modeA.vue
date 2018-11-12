@@ -1,24 +1,19 @@
-
 <template>
 	<div>
-		<top></top>
+	<h2>
 		{{title}}
+	</h2>
 	</div>
 </template>
 <script>
-	import top from './top.vue';
 	export default {
 		data() {
 			return {
-				title: 'alex'
+				title: 'this is a'
 			}
-		},
-		components: {
-			top
 		}
 	}
 </script>
 <style scoped>
-
 </style>
 

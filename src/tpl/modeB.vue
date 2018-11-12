@@ -9,7 +9,7 @@
 	export default {
 		data() {
 			return {
-				title: 'this is top'
+				title: 'this is b'
 			}
 		}
 	}

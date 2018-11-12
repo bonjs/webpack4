@@ -1,5 +1,4 @@
 
-//var Vue = require('vue').default;
 
 import Vue from 'vue';
 import app from './tpl/index.vue'
@@ -10,6 +9,5 @@ new Vue({
 		return h(app)
 	}
 })
-
 
 module.hot.accept();

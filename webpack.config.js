@@ -82,7 +82,12 @@ module.exports = {
 				vendors: {
 					test: /[\\/]node_modules[\\/]/,
 					priority: -10
-				}
+				},
+				commons: {
+                    name: "commons",
+                    chunks: "initial",
+                    minChunks: 2
+                }
 			}
 		},
 	},
