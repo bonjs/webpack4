@@ -1,7 +1,11 @@
 
 var str = 'this is index';
 
-console.log('aaaa')
+var p = new Promise(function(resolve, reject) {
+	setTimeout(function(){
+		resolve(str)
+	})
+});
 
-module.exports = str;
+module.exports = p;
 

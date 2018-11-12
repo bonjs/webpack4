@@ -1,7 +1,14 @@
 
 var app = require('./app');
 
-console.log(app);
 
-document.getElementById('app').innerHTML = app
-document.body.style.backgroundColor = 'gray'
+async function main() {
+	console.log(app);
+
+	document.getElementById('app').innerHTML = await app
+	document.body.style.backgroundColor = '#cde'
+}
+main();
+
+
+module.hot.accept();
