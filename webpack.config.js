@@ -1,6 +1,6 @@
 
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const webpack = require('webpack');
 
 module.exports = {
@@ -41,6 +41,13 @@ module.exports = {
 						loader: 'css-loader'
 					}
 				]
+			}, {
+				test: /\.vue$/,
+				use: [
+					{
+						loader: 'vue-loader'
+					}
+				]
 			}
 		]
 	},
@@ -52,7 +59,8 @@ module.exports = {
 			chunks: ['main', "runtime"],
 		}),
 		new webpack.NamedModulesPlugin(),
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(), 
+		new VueLoaderPlugin()
 	],
 
 	optimization: {
@@ -85,4 +93,9 @@ module.exports = {
 		hot: true,
 		inline: true,
 	},
+	resolve: {
+		alias: {
+			'vue': 'vue/dist/vue.common.js'
+		}
+	}
 };

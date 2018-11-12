@@ -1,14 +1,16 @@
 
-var app = require('./app');
+//var Vue = require('vue').default;
+
+import Vue from 'vue/dist/vue.common.js'
+import app from './tpl/index.vue'
 
 
-async function main() {
-	console.log(app);
-
-	document.getElementById('app').innerHTML = await app
-	document.body.style.backgroundColor = '#cde'
-}
-main();
+new Vue({
+	el: '#app',
+	render: function (h) {
+		return h(vueIndex)
+	}
+})
 
 
 module.hot.accept();

@@ -19,6 +19,9 @@
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.23.1",
     "stylus-loader": "^3.0.2",
+    "vue": "^2.5.17",
+    "vue-loader": "^15.2.4",
+    "vue-template-compiler": "^2.5.17",
     "webpack": "^4.25.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
@@ -28,6 +31,8 @@
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-0": "^6.24.1"
+    "babel-preset-stage-0": "^6.24.1",
+    "vue": "^2.5.17",
+    "vue-loader": "^15.4.2"
   }
 }
