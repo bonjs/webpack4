@@ -21,7 +21,7 @@ module.exports = {
 				use: {
 					loader: "babel-loader",
 					query: {
-						presets: ['es2015'] //按照最新的ES6语法规则去转换
+						presets: ['latest'] //按照最新的ES6语法规则去转换
 					}
 				},
 			}, {
