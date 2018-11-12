@@ -1,9 +1,10 @@
 
 <template>
 	<div>
-		{{title}}
-		<router-link name="a" to="/a">a</router-link>
-      	<router-link name="a" to="/b">b</router-link>
+		<el-tabs ref="tabs" v-model="$router.name || 'a'" type="card" @tab-click="onTabClick">
+			<el-tab-pane label="模板A" name="a"></el-tab-pane>
+			<el-tab-pane label="模板B" name="b"></el-tab-pane>
+		</el-tabs>
 
 		<router-view></router-view>   
 	</div>
@@ -22,7 +23,7 @@
 	const modeB = r => require.ensure([], () => r(require('./modeB.vue')), 'b')
 	
 	const routes = [
-		{ path: '/a', component: modeA },
+		{ path: '/a', alias: '/', component: modeA },
 		{ path: '/b', component: modeB }
 	]
 	const router = new VueRouter({
@@ -33,14 +34,27 @@
 		router,
 		data() {
 			return {
-				title: 'index'
+				title: 'index',
+				options: [
+					{name: 'a', route: '/a'},
+					{name: 'b', route: '/b'}
+				]
 			}
 		},
 		methods: {
-			click() {
+			onTabClick() {
 
+				let currentName = this.$refs.tabs.currentName;
+
+				var path = this.options.find(function(it, i) {
+					return it.name == currentName;
+				}).route;
+				console.log(path)
+
+				this.$router.push({path: path});
 			}
 		},
+	
 		components: {
 			modeA,
 			modeB

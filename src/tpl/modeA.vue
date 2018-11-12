@@ -2,7 +2,6 @@
 	<div>
 	<h2>
 		{{title}}
-		<el-button @click="click">test</el-button>
 	</h2>
 	</div>
 </template>
@@ -14,9 +13,6 @@
 			}
 		},
 		methods: {
-			click() {
-				alert('click')
-			}
 		}
 	}
 </script>
