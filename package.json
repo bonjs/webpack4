@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "rm -rf ./dist && webpack-dev-server --mode development --open",
+    "s": "node ./server.js",
     "dev": "rm -rf ./dist && webpack --mode development",
     "prod": "rm -rf ./dist && webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -33,6 +34,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
     "vue": "^2.5.17",
-    "vue-loader": "^15.4.2"
+    "vue-loader": "^15.4.2",
+    "webpack-hot-middleware": "^2.24.3"
   }
 }

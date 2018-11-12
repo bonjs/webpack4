@@ -4,6 +4,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const webpack = require('webpack');
 
 module.exports = {
+	mode: 'development',
 	entry: {
 		main: './src/index.js',
 	},
