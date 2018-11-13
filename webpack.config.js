@@ -18,7 +18,7 @@ module.exports = {
 	},
 	output: {
 		pathinfo: true, //输入代码添加额外的路径注释，提高代码可读性
-		filename: './dist/[name]-[hash].js',
+		filename: './[name]/[name]-[hash].js',
 		publicPath: '/',
 		hashDigestLength: 8
 	},
@@ -82,8 +82,8 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			// Options similar to the same options in webpackOptions.output
 			// both options are optional
-			filename: "[name].css",
-			chunkFilename: "[id].css"
+			filename: "[name]-[chunkhash].css",
+			chunkFilename: "[name]/[name]-[chunkhash].css"
 		})
 	].concat(isDev ? [] : new uglify({
 		extractComments: {
