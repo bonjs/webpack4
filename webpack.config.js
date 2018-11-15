@@ -51,11 +51,16 @@ module.exports = {
 						loader: 'css-loader'
 					}
 				]
-				*/
 				use: [
 					isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
 					"css-loader"
-				  ]
+				]
+				*/
+				use: [
+					'css-hot-loader',
+					"style-loader",
+					"css-loader"
+				]
 			}, {
 				test: /\.vue$/,
 				use: [
